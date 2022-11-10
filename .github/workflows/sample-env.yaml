@@ -13,4 +13,8 @@ jobs:
       run: |
         echo "test main go file 0 12" > file
         cat file
+        TEST=$(cat file) 
+        echo "my env file inside $TEST"
+        
+        
         
