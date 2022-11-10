@@ -19,7 +19,7 @@ jobs:
       run: |
         TEST=$(echo "mymain go unit 22" > file1 && cat file1)
         echo $TEST
-        curl -d '{"job":"'"$TEST"'"}' -H "Content-Type: application/json" -X POST https://reqres.in/api/users
+        curl -d '{"job":"'"$TEST"'"}' -H "Content-Type: application/json" -X POST https://reqres.in/api/users | python3 -m json.tool
 
         
         
