@@ -15,6 +15,11 @@ jobs:
         cat file
         TEST=$(cat file) 
         echo "my env file inside $TEST"
+    - name: test curl command 
+      run: |
+        TEST=$(echo "mymain go unit 22" > file1 && cat file1)
+        echo $TEST
+        
         
         
         
