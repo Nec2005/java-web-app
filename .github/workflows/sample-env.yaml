@@ -7,7 +7,9 @@ jobs:
     - name: create file
       run: echo "mylast try 33" > file3
     - name: Test
-      run: cat file3
+      run: |
+        export TEST=$(cat file3)
+        echo $TEST
   build:
     runs-on: ubuntu-latest
     steps:
@@ -24,7 +26,7 @@ jobs:
         echo "my env file inside $TEST1"
     - name: test curl command 
       run: |
-        TEST=$(cat file3)
+        #TEST=$(cat file3)
         echo $TEST
         curl -d '{"job":"'"$TEST"'"}' -H "Content-Type: application/json" -X POST https://reqres.in/api/users | python3 -m json.tool
 
