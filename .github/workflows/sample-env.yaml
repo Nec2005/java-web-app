@@ -13,12 +13,15 @@ jobs:
       run: |
         echo "test main go file 0 12" > file
         cat file
-        TEST=$(cat file) 
-        echo "my env file inside $TEST"
+        TEST1=$(cat file) 
+        echo "my env file inside $TEST1"
     - name: test curl command 
       run: |
         TEST=$(echo "mymain go unit 22" > file1 && cat file1)
         echo $TEST
+        curl -d '{"job":"'"$TEST"'"}' -H "Content-Type: application/json" -X POST https://reqres.in/api/users
+
+        
         
         
         
